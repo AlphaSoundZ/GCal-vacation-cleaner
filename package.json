@@ -1,0 +1,23 @@
+{
+  "name": "googlecalendar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlphaSoundZ/googleCalendar.git"
+  },
+  "author": "AlphaSoundZ",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlphaSoundZ/googleCalendar/issues"
+  },
+  "homepage": "https://github.com/AlphaSoundZ/googleCalendar#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "googleapis": "^112.0.0"
+  }
+}
