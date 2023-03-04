@@ -31,11 +31,15 @@ calendar.settings.get({
     const calendar_ids = await calendar.calendarList.list();
     const calendar_id = calendar_ids.data.items.find(x => x.summary == process.env.BLOCK_CALENDAR_SUMMARY).id;
 
+    // Get start and end of curretn year
+    const start = DateTime.now().setZone(timezone);
+    const end = DateTime.now().setZone(timezone).endOf('year');
+
     // Get Events
     calendar.events.list({
         calendarId: calendar_id,
-        timeMin: DateTime.now().setZone(timezone).toISO(),
-        maxResults: 10,
+        timeMin: start.toISO(),
+        timeMax: end.toISO(),
         singleEvents: true,
         orderBy: 'startTime'
     }, (err, res) => {
