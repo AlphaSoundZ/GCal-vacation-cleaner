@@ -20,10 +20,10 @@ const calendar = google.calendar({
 const { DateTime } = require('luxon');
 
 // ###############################
-main();
+sync();
 
 // Get timezone from Google Calendar settings
-async function main() {
+async function sync() {
     // Get the timezone
     const timezone = await getCalendarTimezone();
 
@@ -109,3 +109,35 @@ function deleteEvent(event, calendarId) {
         });
     });
 }
+
+/* 
+
+<!-- In deinem HTML-Code -->
+<button id="login-button">Mit Google anmelden</button>
+
+<!-- Lade das Google JavaScript-SDK -->
+<script src="https://apis.google.com/js/platform.js"></script>
+
+<!-- Initialisiere die Google-API -->
+<script>
+  gapi.load('auth2', function() {
+    gapi.auth2.init({
+      client_id: 'DEINE_CLIENT_ID'
+    });
+  });
+
+  // Füge einen Event-Listener zum Button hinzu
+  var loginButton = document.getElementById('login-button');
+  loginButton.addEventListener('click', function() {
+    gapi.auth2.getAuthInstance().signIn().then(function() {
+      // Wenn der Benutzer angemeldet ist, zeige eine Erfolgsmeldung an
+      console.log('Angemeldet mit Google!');
+      // Hier kannst du den Kalender des Benutzers verknüpfen oder weitere Aktionen ausführen
+    }, function(error) {
+      // Wenn es einen Fehler gibt, zeige eine Fehlermeldung an
+      console.error('Fehler beim Anmelden mit Google:', error);
+    });
+  });
+</script>
+
+*/
